@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice City Trophy Atlas — GTA VI Trophy Guide &amp; Tracker</title>
+<meta name="description" content="Offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI: official names, descriptions and grades, cited guides, a platinum roadmap, missable flags, and a spoiler-safe checklist saved in your browser.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="52" height="52" role="img" aria-label="Trophy cup">
+        <path d="M18 8h28v10a14 14 0 0 1-28 0V8z" fill="#ffd166"/>
+        <path d="M18 12H8a10 10 0 0 0 10 12M46 12h10a10 10 0 0 1-10 12" fill="none" stroke="#ffd166" stroke-width="4"/>
+        <path d="M32 32v10M24 52h16M28 42h8v10h-8z" stroke="#ffd166" stroke-width="4" fill="none"/>
+        <circle cx="32" cy="18" r="3.5" fill="#ff2e88"/>
+      </svg>
+    </div>
+    <div>
+      <h1>Vice City Trophy Atlas</h1>
+      <p class="tagline">The complete GTA VI trophy guide &amp; tracker — all 55 PS5 trophies, offline, in your browser.</p>
+    </div>
+    <div class="platinum-box" id="platinumBox">
+      <span class="platinum-label">Platinum</span>
+      <span class="platinum-name">Vice Got a Price!</span>
+      <span class="platinum-est">≈ 200 hours · difficulty 4/10 · 1 playthrough</span>
+    </div>
+  </div>
+  <div class="progress-wrap">
+    <div class="progress-text" id="progressText">0 of 55 earned</div>
+    <div class="progress-bar" role="progressbar" aria-label="Trophies earned" aria-valuemin="0" aria-valuemax="55" aria-valuenow="0" id="progressBar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    <div class="progress-grades" id="progressGrades"></div>
+  </div>
+  <nav class="tabs" aria-label="Guide sections">
+    <button type="button" class="tab active" data-tab="tracker" id="tab-tracker">Tracker</button>
+    <button type="button" class="tab" data-tab="roadmap" id="tab-roadmap">Platinum Roadmap</button>
+    <button type="button" class="tab" data-tab="missable" id="tab-missable">Missable <span class="tab-badge" id="missableCount">1</span></button>
+    <button type="button" class="tab" data-tab="sources" id="tab-sources">Sources &amp; Method</button>
+  </nav>
+</header>
+
+<main>
+  <section id="view-tracker" class="view active" aria-label="Trophy tracker">
+    <div class="controls">
+      <label class="search-label">Search <input type="search" id="search" placeholder="Search name, mission, or guide…" autocomplete="off"></label>
+      <label>Grade
+        <select id="gradeFilter">
+          <option value="all">All grades</option>
+          <option value="platinum">Platinum</option>
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="bronze">Bronze</option>
+        </select>
+      </label>
+      <label>Sort
+        <select id="sortFilter">
+          <option value="default">Guide order</option>
+          <option value="grade">Grade (best first)</option>
+          <option value="name">Name A–Z</option>
+        </select>
+      </label>
+      <div class="toggles">
+        <label class="toggle"><input type="checkbox" id="spoilerToggle" checked> Hide spoilers</label>
+        <label class="toggle"><input type="checkbox" id="hideEarnedToggle"> Hide earned</label>
+      </div>
+      <div class="io-buttons">
+        <button type="button" id="exportBtn">Export progress</button>
+        <label class="import-btn">Import progress <input type="file" id="importFile" accept="application/json,.json" hidden></label>
+        <button type="button" id="resetBtn" class="quiet">Reset</button>
+      </div>
+    </div>
+    <div class="kind-chips" role="group" aria-label="Filter by kind">
+      <button type="button" class="chip active" data-kind="all">All 55</button>
+      <button type="button" class="chip" data-kind="story">Story</button>
+      <button type="button" class="chip" data-kind="missable">Missable</button>
+      <button type="button" class="chip" data-kind="collectibles">Collectibles</button>
+      <button type="button" class="chip" data-kind="activities">Activities</button>
+      <button type="button" class="chip" data-kind="online">Online</button>
+    </div>
+    <p class="filter-note" id="filterNote"></p>
+    <p class="spoiler-note" id="spoilerNote">Spoilers hidden: the names and descriptions of hidden story trophies stay masked until you earn them. Untick “Hide spoilers” to reveal everything.</p>
+    <ul class="trophy-list" id="trophyList"></ul>
+    <p class="empty-state" id="emptyState" hidden>No trophies match these filters. Try clearing the search or choosing another kind.</p>
+  </section>
+
+  <section id="view-roadmap" class="view" aria-label="Platinum roadmap">
+    <h2 id="roadmapTitle">Roadmap to the Platinum</h2>
+    <p class="roadmap-summary" id="roadmapSummary"></p>
+    <div class="warnings" id="roadmapWarnings"></div>
+    <ol class="roadmap-stages" id="roadmapStages"></ol>
+    <p class="roadmap-sources" id="roadmapSources"></p>
+  </section>
+
+  <section id="view-missable" class="view" aria-label="Missable trophies">
+    <h2>Missable trophies</h2>
+    <div id="missableBody"></div>
+  </section>
+
+  <section id="view-sources" class="view" aria-label="Sources and method">
+    <h2>Sources &amp; method</h2>
+    <div id="sourcesBody"></div>
+  </section>
+</main>
+
+<footer>
+  <p>Unofficial fan guide. Not affiliated with Rockstar Games, Take-Two Interactive, Sony Interactive Entertainment, or PlayStation. Grand Theft Auto, GTA and Rockstar are trademarks of their owners; no Rockstar logo, artwork or game screenshot is used anywhere in this guide — the look is our own.</p>
+  <p>Works fully offline: every file this app loads lives under app/, and it makes no network request at run time. Your checklist is saved only in this browser (localStorage) and can be exported to a file and imported back. Trophy names, descriptions and grades are shown exactly as PlayStation publishes them.</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

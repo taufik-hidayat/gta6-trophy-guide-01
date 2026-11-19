@@ -1,0 +1,133 @@
+/* Vice City Trophy Atlas — a neon Vice City palette of our own: deep violet nights,
+   hot pink and teal. No Rockstar artwork, no external assets, system fonts only. */
+:root {
+  --bg: #150a24;
+  --bg-soft: #1e1032;
+  --card: #241640;
+  --card-earned: #1b2b26;
+  --ink: #f4eefc;
+  --muted: #c3b3e0;
+  --line: #3d2a63;
+  --pink: #ff2e88;
+  --teal: #2de2c5;
+  --gold: #ffd166;
+  --silver: #cfd6e4;
+  --bronze: #e09a5f;
+  --platinum: #b9f2ff;
+  --danger: #ff6b6b;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #1b0b30 0%, var(--bg) 30%, #0e0718 100%);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.5;
+}
+a { color: var(--teal); }
+a:visited { color: #8fe8d8; }
+.masthead { padding: 20px 20px 0; max-width: 1080px; margin: 0 auto; }
+.masthead-inner { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+.logo { flex: 0 0 auto; padding-top: 4px; }
+h1 { margin: 0; font-size: 2rem; letter-spacing: 0.5px; color: #fff; }
+h1::after { content: ""; display: block; height: 4px; width: 180px; margin-top: 6px;
+  background: linear-gradient(90deg, var(--pink), var(--teal)); border-radius: 2px; }
+.tagline { margin: 6px 0 0; color: var(--muted); max-width: 560px; }
+.platinum-box { margin-left: auto; text-align: right; border: 1px solid var(--line);
+  border-radius: 10px; padding: 10px 14px; background: var(--bg-soft); }
+.platinum-label { display: block; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--platinum); }
+.platinum-name { display: block; font-weight: 700; color: #fff; }
+.platinum-est { display: block; font-size: 0.85rem; color: var(--muted); }
+.progress-wrap { margin-top: 18px; }
+.progress-text { font-weight: 700; font-size: 1.05rem; }
+.progress-bar { height: 12px; border-radius: 6px; background: #2c1c4d; margin: 6px 0; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 6px; background: linear-gradient(90deg, var(--pink), var(--gold), var(--teal)); transition: width 0.25s ease; }
+.progress-grades { font-size: 0.88rem; color: var(--muted); display: flex; gap: 14px; flex-wrap: wrap; }
+.tabs { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+.tab { background: var(--bg-soft); color: var(--ink); border: 1px solid var(--line);
+  border-radius: 8px 8px 0 0; padding: 9px 16px; font-size: 0.95rem; cursor: pointer; border-bottom: none; }
+.tab.active { background: var(--card); color: #fff; border-color: var(--pink); border-bottom: 2px solid var(--pink); font-weight: 700; }
+.tab-badge { background: var(--danger); color: #fff; border-radius: 10px; padding: 1px 7px; font-size: 0.78rem; font-weight: 700; }
+main { max-width: 1080px; margin: 0 auto; padding: 0 20px 30px; }
+.view { display: none; background: var(--card); border: 1px solid var(--line); border-radius: 0 12px 12px 12px; padding: 18px; }
+.view.active { display: block; }
+h2 { margin: 0 0 10px; color: #fff; }
+.controls { display: flex; gap: 14px; flex-wrap: wrap; align-items: flex-end; }
+.controls label { font-size: 0.9rem; color: var(--muted); display: flex; flex-direction: column; gap: 4px; }
+.controls input[type="search"], .controls select {
+  background: var(--bg-soft); color: var(--ink); border: 1px solid var(--line);
+  border-radius: 6px; padding: 8px 10px; font-size: 0.95rem; min-width: 150px; }
+.search-label input[type="search"] { min-width: 260px; }
+.toggles { display: flex; gap: 16px; align-items: center; padding-bottom: 6px; }
+.toggle { flex-direction: row !important; align-items: center; gap: 6px !important; color: var(--ink) !important; cursor: pointer; }
+.io-buttons { display: flex; gap: 8px; align-items: center; margin-left: auto; }
+button, .import-btn {
+  background: var(--pink); color: #fff; border: none; border-radius: 6px;
+  padding: 8px 14px; font-size: 0.92rem; cursor: pointer; font-weight: 600; }
+button:hover, .import-btn:hover { filter: brightness(1.12); }
+button.quiet { background: transparent; border: 1px solid var(--line); color: var(--muted); }
+.import-btn { background: var(--bg-soft); border: 1px solid var(--line); color: var(--ink); font-weight: 600; }
+.kind-chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0 6px; }
+.chip { background: var(--bg-soft); color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-weight: 600; }
+.chip.active { background: var(--pink); border-color: var(--pink); color: #fff; }
+.filter-note, .spoiler-note { font-size: 0.88rem; color: var(--muted); margin: 6px 0; }
+.filter-note:empty { display: none; }
+.trophy-list { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 12px; }
+.trophy { display: flex; gap: 14px; background: var(--bg-soft); border: 1px solid var(--line);
+  border-radius: 10px; padding: 14px; }
+.trophy.earned { background: var(--card-earned); border-color: #2f6b52; }
+.trophy.earned .trophy-name { text-decoration: line-through; text-decoration-thickness: 2px; }
+.trophy-check { flex: 0 0 auto; padding-top: 2px; }
+.trophy-check input { width: 22px; height: 22px; accent-color: var(--teal); cursor: pointer; }
+.trophy-body { flex: 1; min-width: 0; }
+.trophy-head { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.trophy-name { font-weight: 700; font-size: 1.08rem; color: #fff; }
+.grade { font-size: 0.72rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+  border-radius: 4px; padding: 2px 7px; white-space: nowrap; }
+.grade-platinum { background: var(--platinum); color: #083344; }
+.grade-gold { background: var(--gold); color: #4a2c00; }
+.grade-silver { background: var(--silver); color: #1f2937; }
+.grade-bronze { background: var(--bronze); color: #3d1e05; }
+.tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px; border-radius: 4px; padding: 2px 7px;
+  border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.tag-hidden { color: #d8b4fe; border-color: #6b21a8; }
+.tag-missable { color: #fff; background: var(--danger); border-color: var(--danger); }
+.tag-kind { color: var(--teal); border-color: #134e4a; }
+.trophy-desc { margin: 6px 0 0; font-style: italic; color: var(--muted); }
+.trophy-guide { margin: 8px 0 0; }
+.trophy-guide strong { color: var(--teal); }
+.trophy-meta { margin: 8px 0 0; font-size: 0.86rem; color: var(--muted); }
+.trophy-sources { margin: 8px 0 0; font-size: 0.86rem; color: var(--muted); }
+.trophy-sources a { margin-right: 10px; }
+.spoiler-mask { color: var(--muted); font-style: italic; }
+.empty-state { color: var(--muted); text-align: center; padding: 30px 0; }
+.roadmap-summary { color: var(--muted); }
+.warnings { display: grid; gap: 8px; margin: 12px 0; }
+.warning { background: #3d1526; border: 1px solid var(--pink); border-radius: 8px; padding: 10px 12px; }
+.warning strong { color: #ffb3cd; }
+.roadmap-stages { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: stage; }
+.roadmap-stage { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.roadmap-stage h3 { margin: 0 0 4px; color: #fff; }
+.roadmap-stage h3 .hours { float: right; font-size: 0.85rem; color: var(--gold); font-weight: 600; }
+.roadmap-stage p { margin: 6px 0; color: var(--muted); }
+.stage-trophies { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.stage-trophy { background: var(--card); border: 1px solid var(--line); border-radius: 999px;
+  padding: 3px 10px; font-size: 0.82rem; }
+.stage-trophy.done { border-color: #2f6b52; color: #a7f3d0; text-decoration: line-through; }
+.stage-trophy .mini-grade { font-weight: 800; font-size: 0.68rem; letter-spacing: 1px; text-transform: uppercase; margin-right: 5px; }
+.roadmap-sources { font-size: 0.86rem; color: var(--muted); margin-top: 14px; }
+.missable-card { background: #3d1526; border: 1px solid var(--pink); border-radius: 10px; padding: 16px; margin-bottom: 14px; }
+.missable-card h3 { margin: 0 0 6px; color: #fff; }
+.missable-card p { margin: 6px 0; color: #ffd9e8; }
+.callout { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.callout p { margin: 6px 0; color: var(--muted); }
+.sources-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.sources-list li { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+.sources-list p { margin: 4px 0 0; color: var(--muted); }
+footer { max-width: 1080px; margin: 0 auto; padding: 0 20px 40px; color: var(--muted); font-size: 0.85rem; }
+@media (max-width: 640px) {
+  h1 { font-size: 1.5rem; }
+  .platinum-box { margin-left: 0; text-align: left; }
+  .search-label input[type="search"] { min-width: 0; width: 100%; }
+  .io-buttons { margin-left: 0; }
+}
